@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas로 그림 그리기 - 스타일 선택</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("img/배경다이어리.png");
+        }
+
+        canvas {
+            border: 1px solid #d5a0e1;
+            background: #fff;
+            margin-top: 10px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .controls label {
+            margin-right: 10px;
+        }
+        .controls > div {
+            margin-right: 30px; /* 각 컨트롤 간의 간격 조정 */
+        }
+
+        #handImage {
+            position: absolute;
+            width: 300px;
+            height: 500px;
+            pointer-events: none;
+            transform: translate(-5%, -40%);
+            z-index: 2;
+        }
+
+        #crayonImage {
+            position: absolute;
+            width: 300px;
+            height: 500px;
+            pointer-events: none;
+            transform: translate(-5%, -40%);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<a href="0.html" class="back-btn"></a>
+
+
+
+<div class="controls">
+    <div>
+        <label for="colorPicker">선 색상:</label>
+        <input type="color" id="colorPicker" value="#000000">
+    </div>
+    <div>
+        <label for="lineWidthSlider">선 굵기:</label>
+        <input type="range" id="lineWidthSlider" min="1" max="20" value="5">
+        <span id="lineWidthValue">5</span>
+    </div>
+</div>
+
+<canvas id="drawingCanvas" width="1500" height="830"></canvas>
+
+<img src="img/크레용손.png" id="handImage" alt="Hand Image">
+<img src="img/크레용.png" id="crayonImage" alt="Crayon Image">
+
+
+
+<script src="2.js"></script>
+<!--<script>-->
+<!--    const canvas = document.getElementById('drawingCanvas');-->
+<!--    const ctx = canvas.getContext('2d');-->
+<!--    let isDrawing = false;-->
+
+<!--    const colorPicker = document.getElementById('colorPicker');-->
+<!--    const lineWidthSlider = document.getElementById('lineWidthSlider');-->
+<!--    const lineWidthValue = document.getElementById('lineWidthValue');-->
+
+<!--    ctx.strokeStyle = colorPicker.value;-->
+<!--    ctx.lineWidth = lineWidthSlider.value;-->
+<!--    ctx.lineCap = 'round';-->
+
+<!--    const crayonImage = document.getElementById('crayonImage');-->
+<!--    const handImage = document.getElementById('handImage');-->
+
+<!--    // 컬러픽커로 크레용 색상 업데이트-->
+<!--    function updateCrayonColor(color) {-->
+<!--        const canvas = document.createElement("canvas");-->
+<!--        const ctx = canvas.getContext("2d");-->
+<!--        const img = new Image();-->
+<!--        img.src = crayonImage.src;-->
+
+<!--        img.onload = () => {-->
+<!--            canvas.width = img.width;-->
+<!--            canvas.height = img.height;-->
+<!--            ctx.drawImage(img, 0, 0);-->
+<!--            ctx.globalCompositeOperation = 'source-atop';-->
+<!--            ctx.fillStyle = color;-->
+<!--            ctx.fillRect(0, 0, canvas.width, canvas.height);-->
+
+<!--            crayonImage.src = canvas.toDataURL();-->
+<!--        };-->
+<!--    }-->
+
+<!--    updateCrayonColor(colorPicker.value);-->
+
+<!--    colorPicker.addEventListener('input', () => {-->
+<!--        ctx.strokeStyle = colorPicker.value;-->
+<!--        updateCrayonColor(colorPicker.value);-->
+<!--    });-->
+
+<!--    lineWidthSlider.addEventListener('input', () => {-->
+<!--        ctx.lineWidth = lineWidthSlider.value;-->
+<!--        lineWidthValue.textContent = lineWidthSlider.value;-->
+<!--    });-->
+
+<!--    canvas.addEventListener('mousedown', (event) => {-->
+<!--        isDrawing = true;-->
+<!--        ctx.beginPath();-->
+<!--        ctx.moveTo(event.offsetX, event.offsetY);-->
+<!--    });-->
+
+<!--    canvas.addEventListener('mousemove', (event) => {-->
+<!--        if (isDrawing) {-->
+<!--            ctx.lineTo(event.offsetX, event.offsetY);-->
+<!--            ctx.stroke();-->
+<!--        }-->
+<!--    });-->
+
+<!--    canvas.addEventListener('mouseup', () => {-->
+<!--        isDrawing = false;-->
+<!--        ctx.closePath();-->
+<!--    });-->
+
+<!--    canvas.addEventListener('mouseleave', () => {-->
+<!--        isDrawing = false;-->
+<!--        ctx.closePath();-->
+<!--    });-->
+
+<!--    document.addEventListener('mousemove', (event) => {-->
+<!--        handImage.style.left = `${event.clientX}px`;-->
+<!--        handImage.style.top = `${event.clientY}px`;-->
+<!--        crayonImage.style.left = `${event.clientX}px`;-->
+<!--        crayonImage.style.top = `${event.clientY}px`;-->
+<!--    });-->
+<!--</script>-->
+
+</body>
+</html>

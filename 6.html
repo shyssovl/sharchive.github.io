@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컬러픽커를 이용하여 캐릭터 옷 색 변경</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: url("img/배경방안.png");
+        }
+
+        .characterContainer {
+            display: flex; /* 수평으로 나열하기 위한 flexbox 설정 */
+            justify-content: center; /* 중앙 정렬 */
+        }
+
+        .canvasWrapper {
+            position: relative;
+            margin: 10px;
+        }
+
+
+        .colorPickerWrapper {
+            margin-top: 10px;
+        }
+
+        /* 이미지 태그 숨기기 */
+        .sourceImage {
+            display: none;
+        }
+
+        .character {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+<a href="0.html" class="back-btn"></a>
+
+
+
+
+<div class="characterContainer">
+    <!-- 캐릭터 1 -->
+    <div class="character">
+        <img id="fullBodyImage1" class="sourceImage" src="img/옷모델1.png" alt="전신 이미지 1" width="500" height="700">
+        <img id="pantsImage1" class="sourceImage" src="img/옷변경1.png" alt="바지 이미지 1" width="500" height="700">
+        <div class="canvasWrapper">
+            <canvas id="canvas1" width="500" height="700"></canvas>
+        </div>
+        <div class="colorPickerWrapper">
+            <input type="color" id="pantsColorPicker1" value="#FED8C8"> <!-- 기본 색 지정 -->
+        </div>
+    </div>
+
+
+
+    <!-- 캐릭터 2 -->
+    <div class="character">
+        <img id="fullBodyImage2" class="sourceImage" src="img/옷모델2.png" alt="전신 이미지 2" width="500" height="700">
+        <img id="pantsImage2" class="sourceImage" src="img/옷변경2.png" alt="바지 이미지 2" width="500" height="700">
+        <div class="canvasWrapper">
+            <canvas id="canvas2" width="500" height="700"></canvas>
+        </div>
+        <div class="colorPickerWrapper">
+            <input type="color" id="pantsColorPicker2" value="#FFE5F1">
+        </div>
+    </div>
+
+
+
+    <!-- 캐릭터 3 -->
+    <div class="character">
+        <img id="fullBodyImage3" class="sourceImage" src="img/옷모델3.png" alt="전신 이미지 3" width="500" height="700">
+        <img id="pantsImage3" class="sourceImage" src="img/옷변경3.png" alt="바지 이미지 3" width="500" height="700">
+        <div class="canvasWrapper">
+            <canvas id="canvas3" width="500" height="700"></canvas>
+        </div>
+        <div class="colorPickerWrapper">
+            <input type="color" id="pantsColorPicker3" value="#BBADA5">
+        </div>
+    </div>
+</div>
+
+
+
+<script src="6.js"></script>
+
+
+
+</body>
+</html>
